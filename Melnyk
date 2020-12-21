@@ -1,0 +1,41 @@
+*12. Обмежуємо вибірку*/
+SELECT * FROM ticket LIMIT 3;
+
+/*10.Показує скільки рядочкі в таблиці*/
+SELECT COUNT(*) AS number_d FROM passengers;
+
+/*1.Показати назву перевізника, який є жінкою/
+SELECT * FROM passengers WHERE passengers_gender = 'ж';
+
+
+*8.Міняємо назву колонки, тимчасово*/
+ SELECT  city_name AS name FROM city;
+
+
+/* 2.Показати конкретні поля*/
+SELECT drivers_id, drivers_last_name FROM drivers;
+
+/*3.Вибірка на різні імена водіїв (ПОКАЗУЄ УНІКАЛЬНІ)*/
+SELECT DISTINCT drivers_first_name FROM drivers;
+
+/*4.Умова вибору (WHERE), для фільтрації запитів*/
+SELECT * FROM ticket WHERE prise >= 6500 AND prise <=4800 ;
+
+/*13.Шукаємо в стрічці*/
+SELECT * FROM passengers WHERE passengers_middle_name LIKE 'В%';
+SELECT * FROM passengers WHERE passengers_middle_name LIKE '%ч';
+SELECT * FROM passengers WHERE passengers_middle_name LIKE '%А%';
+SELECT * FROM passengers WHERE passengers_last_name LIKE  'М%к';
+
+
+/*5.Сортувати за зростанням*/
+SELECT *  FROM passengers ORDER BY passengers_last_name ;
+
+
+/*7. Показуємо повні імена пасажирів, і сортуємо їх за зростанням*/
+SELECT drivers_first_name, drivers_last_name, drivers_middle_name FROM drivers ORDER BY drivers_last_name ASC;
+
+/*11.Визначаємо середню місткість автобуса*/
+SELECT AVG (capacity) AS average_capacity FROM bus;
+/*Знаходимо максимальну і мінімальну ціну і середню до них*/
+SELECT MAX(capacity), MIN(capacity), AVG (capacity) AS average_capacity FROM bus;
